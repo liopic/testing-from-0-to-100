@@ -1,0 +1,11 @@
+**/__pycache__
+**/.classpath
+**/.dockerignore
+**/.env
+**/.git
+**/.gitignore
+**/.project
+**/.pytest_cache
+**/.vscode
+**/Dockerfile*
+README.md
