@@ -1,19 +1,26 @@
 # Testing from 0 to 100
 
 In December 2022 I presented the talk "Testing in Python, from 0 to 100"
-at the monthly Python Valencia meetup. This repository contains the talk
-slides, as well as some examples of code that were discussed in the talk.
+at the monthly Python Valencia meetup.
+
+This repository contains the talk slides, as well as some examples of code
+that were discussed in the talk. Notice that the slides contain more testing
+methods (from page 25 on) that were not presented in detail during the original
+talk.
+
+## The code under test
 
 The file `moon_locator.py` contains an easy example of code that calculates
-the date & time when the moon will be located in the South. Then, there
-are different tests that stress this code, including:
+the date & time when the moon will be located in the South.
 
-- An example of not-proper way to test: `this_is_not_a_proper_way_to_test.py
+## The tests
+
+- An example of not-proper way to test: `this_is_not_a_proper_way_to_test.py`
 - Some easy tests using pytest: `test_moon_locator.py`
 - A test using a pytest fixture: `test_with_fixture.py`
 - A test using mocking: `test_with_mock.py`
 - A test using property-based testing: `test_property_based.py`
-
+- An example of BBD test: `/features`
 
 ## Instalation
 
@@ -38,7 +45,7 @@ work with the code inside a docker container. Just use "Reopen in container"
 (as the Development Container config file is in the repo already).
 Notice that you may need to install `Python` extension in Dev Container.
 
-## Tests
+## Executing the different tests
 
 ### Usual tests (pytest)
 Run pytest:
@@ -64,3 +71,7 @@ Execute one mutation:
 ### Property-based testing (hypothesis)
 
 `pytest -v tests/test_property_based.py --hypothesis-show-statistics`
+
+### BBD testing (behave)
+
+`behave`
