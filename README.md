@@ -1,19 +1,27 @@
-# Testing from 0 to 100
+# Testing in Python, from 0 to 100
 
-In December 2022 I presented the talk "Testing in Python, from 0 to 100"
-at the monthly Python Valencia meetup.
+This repository contains the slides and code examples from my talk on testing in Python, presented at the monthly Python Valencia meetup in December 2022.
 
-This repository contains the talk slides, as well as some examples of code
-that were discussed in the talk. Notice that the slides contain more testing
-methods (from page 25 on) that were not presented in detail during the original
-talk.
+The goal of the talk was to provide an introduction to testing in Python, starting from the basics and working up to more advanced techniques, as well as launch open questions on what is a good test.
 
-## The code under test
+## Content
+
+### Presentation Slides
+
+The slides.pdf file contains the slides from my presentation. The original talk
+goes up to page 24, presenting basic tests done in `pytest`, the use of mocks
+and fixtures, and ends with an example of mutation testing.
+
+The slides also include additional testing methods (from page 25 on) that were
+not covered in detail during the original talk, which includes property based
+testing and behaviour based testing.
+
+### The code under test
 
 The file `moon_locator.py` contains an easy example of code that calculates
 the date & time when the moon will be located in the South.
 
-## The tests
+### The tests
 
 - An example of not-proper way to test: `this_is_not_a_proper_way_to_test.py`
 - Some easy tests using pytest: `test_moon_locator.py`
@@ -45,9 +53,10 @@ work with the code inside a docker container. Just use "Reopen in container"
 (as the Development Container config file is in the repo already).
 Notice that you may need to install `Python` extension in Dev Container.
 
-## Executing the different tests
+## Executing the tests
 
-### Usual tests (pytest)
+### Basic tests (pytest)
+
 Run pytest:
 `docker run moon_image pytest -vv`
 
@@ -70,8 +79,10 @@ Execute one mutation:
 
 ### Property-based testing (hypothesis)
 
+Execute the example test that uses hypothesis:
 `pytest -v tests/test_property_based.py --hypothesis-show-statistics`
 
 ### BBD testing (behave)
 
+Run the *features* tests:
 `behave`
