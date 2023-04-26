@@ -21,8 +21,10 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
       - name: Display dependencies
-        run:
-          pip list
+        run: pip list
+
+      - name: Black style check
+        run: black . --check
 
       - name: Tests with pytest
         run: |
@@ -31,4 +33,5 @@ jobs:
         run: |
           mutmut run --paths-to-mutate=.
       - name: Tests with behave
+        run: |
           behave
