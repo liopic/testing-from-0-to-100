@@ -4,11 +4,13 @@ This repository contains the slides and code examples from my talk on testing in
 
 The goal of the talk was to provide an introduction to testing in Python, starting from the basics and working up to more advanced techniques, as well as launch open questions on what is a good test.
 
+I hope you find this repository useful as you explore testing in Python. If you have any questions or feedback, please feel free to ask me.
+
 ## Content
 
 ### Presentation Slides
 
-The slides.pdf file contains the slides from my presentation. The original talk
+The `slides.pdf` file contains the slides from my presentation. The original talk
 goes up to page 24, presenting basic tests done in `pytest`, the use of mocks
 and fixtures, and ends with an example of mutation testing.
 
