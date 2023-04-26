@@ -3,7 +3,8 @@ name: Python testing
 on: [push]
 
 jobs:
-  tests:
+  build:
+    name: Build
 
     runs-on: ubuntu-latest
 
@@ -23,15 +24,23 @@ jobs:
       - name: Display dependencies
         run: pip list
 
+  code-style-check:
+    name: Check code style with black
+    needs: build
+    steps:
       - name: Black style check
         run: black . --check
 
+  tests:
+    name: Tests
+    needs: build
+    steps:
       - name: Tests with pytest
         run: |
-          pytest -vv tests/ --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
+          pytest -vv tests/ --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml --cov-report=html
       - name: Mutation testing
         run: |
-          mutmut run --paths-to-mutate=.
+          mutmut run --paths-to-mutate=. --simple-output --no-progress --CI
       - name: Tests with behave
         run: |
           behave
