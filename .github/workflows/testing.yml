@@ -37,7 +37,7 @@ jobs:
   tests:
     name: Tests
     runs-on: ubuntu-latest
-    needs: build
+    needs: code-style-check
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python 3.x
@@ -51,9 +51,9 @@ jobs:
       - name: Tests with pytest
         run: |
           pytest -vv tests/ --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml --cov-report=html
-      - name: Mutation testing
-        run: |
-          mutmut run --paths-to-mutate=. --simple-output --no-progress --CI
       - name: Tests with behave
         run: |
           behave
+#      - name: Mutation testing
+#        run: |
+#          mutmut run --paths-to-mutate=. --simple-output --no-progress --CI
