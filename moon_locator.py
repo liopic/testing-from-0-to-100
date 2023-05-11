@@ -12,4 +12,4 @@ class MoonLocator:
         return self.moon_on_south + self.moon_interval * cycle
 
     def other_untested_function() -> int:
-        0
+        0  # I forgot to add "return" on purpose
