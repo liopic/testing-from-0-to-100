@@ -3,6 +3,13 @@ from datetime import datetime, timedelta
 from moon_locator import MoonLocator
 
 
+def test_next_moon_should_be_after_some_given_date():
+    date = datetime.now()
+    moon_locator = MoonLocator()
+    next_moon = moon_locator.next_moon_on_south_from_date(date)
+    assert next_moon >= date
+
+
 def test_date_on_south_a_second_before_should_return_that_date():
     sut = MoonLocator()
     some_moon_on_south = datetime(
